@@ -12,10 +12,8 @@
 
 #######  Connect to Reddit ######
 Connect-Reddit
-
 # 'irr' = Invoke-RedditRequest is a PSRAW command (similar to invoke-webrequest
 irr https://oauth.reddit.com/api/v1/me | Select-Object -ExpandProperty ContentObject
-
 # OAuth access
 $OAuthTokenSaveLocation = "<save location>"
 Export-RedditOAuthToken $OAuthTokenSaveLocation
@@ -90,7 +88,7 @@ $Messages = $response.ContentObject.data.children.data
 ####################################################################################
 
 
-#######  Get comments ######
+#######  Get all comments (paginates)  ######
 # ------------------------------------------------------------
 $PostArray = @()
 $uriPage = $null
